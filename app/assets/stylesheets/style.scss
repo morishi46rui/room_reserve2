@@ -28,3 +28,21 @@ h3 {
   height: 50px;
 }
 
+.top {
+  background-image: url(background-top.JPG);
+  background-size: cover;
+  background-position: 50%;
+  height: 800px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.top-search {
+  background: hsla(0,0%,100%,.4);
+  margin: auto;
+  padding: 32px;
+  width: 500px;
+  text-align: center;
+}
