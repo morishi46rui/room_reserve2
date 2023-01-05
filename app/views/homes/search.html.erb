@@ -1,22 +1,47 @@
 <div class="container pages">
-  <h4>検索結果：<%= @results.count %>件</h4>
-  <div class="row align-items-center pages width search">
+  <h2>検索結果：<%= @results.count %>件</h2>
+  <div class="row align-items-center search">
     <% @results.each do |room| %>
       <%= link_to room_path(room) do %>
-        <div class="col room_content">
-          <% if room.image.attached? %>
-            <%= image_tag room.image, class:"room_imgs w-50" %>
-          <% else %>
-            <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/room01.jpg" %>
-          <% end %> 
-          <div class="room_info">
-            <p><%= room.room_name %></p>
-            <p><%= room.adress %></p>
-            <p>¥<%= room.price %></p>
-          </div>
-        </div>
+
+        <ul class="room-list">
+          <li class="room col">
+            <div class="d-flex justify-content-start">
+              <div class="w-50">
+                <% if room.image.attached? %>
+                  <%= image_tag room.image, class:"room-imgs w-100" %>
+                <% else %>
+                  <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/room01.jpg" %>
+                <% end %>
+              </div>
+
+              <div class="w-50">
+                <p class="room-name">
+                  <%= room.room_name %>
+                </p>
+
+                <p class="room-address">
+                  <%= room.adress %>
+                </p>
+
+                <p class="room-content">
+                  <%= room.room_about %>
+                </p>
+
+                <div class="room-footer">
+                  <p class="room-price">
+                    ¥<%= room.price %>
+                  </p>
+                </div>
+              </div>
+              </div>
+          </li>
+        </ul>
       <% end %>  
     <% end %>  
 
   </div>    
 </div>
+
+
+

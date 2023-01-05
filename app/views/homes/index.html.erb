@@ -4,7 +4,7 @@
       <div class="search-form d-flex row justify-content-center">
         <h1 class="first-view-title">最高の旅行体験をRoomReserveで。</h1>
         <%= search_form_for @q, class:"top-search", url: search_path do |f| %>
-          <%= f.search_field :room_name_cont, placeholder:"東京" %>
+          <%= f.search_field :adress_cont, placeholder:"東京" %>
           <%= f.submit '探す',class:"btn btn-primary" %>
         <% end %> 
       </div>
@@ -15,29 +15,21 @@
 <div class="container recommend">
   <h3>おすすめのエリア</h3>
   <div class="row align-items-center">
+    
     <div class="col"> <!-- 検索結果：東京 -->
-      <a href="/">
-        <img class="place_img" alt="東京" src="/assets/images/img_tokyo.jpg">
-      </a>
-      <p>東京</p>
+      <%= link_to "東京", "http://[::1]:3000/search?q%5Badress_cont%5D=%E6%9D%B1%E4%BA%AC&commit=%E6%8E%A2%E3%81%99" %>
     </div>
+    
     <div class="col"><!-- 検索結果：大阪 -->
-      <a href="/">
-        <img class="place_img" alt="大阪" src="/assets/images/osaka.jpg">
-      </a>  
-      <p>大阪</p>
+      <%= link_to "大阪", "http://[::1]:3000/search?q%5Badress_cont%5D=%E5%A4%A7%E9%98%AA&commit=%E6%8E%A2%E3%81%99" %>
     </div>
+    
     <div class="col"><!-- 検索結果：京都 -->
-      <a href="https://0fa3bf49153c4fbaa2faff1c9919706e.vfs.cloud9.us-east-2.amazonaws.com/search?utf8=%E2%9C%93&q%5Badress_cont%5D=%E4%BA%AC%E9%83%BD&q%5Broom_name_or_room_introduction_or_price_or_adress_cont%5D=&commit=%E6%8E%A2%E3%81%99">
-        <img class="place_img" alt="京都" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg">
-      </a>  
-      <p>京都</p>
+      <%= link_to "京都", "http://[::1]:3000/search?q%5Badress_cont%5D=%E4%BA%AC%E9%83%BD&commit=%E6%8E%A2%E3%81%99" %>
     </div>
+    
     <div class="col"><!-- 検索結果：札幌 -->
-      <a href="https://0fa3bf49153c4fbaa2faff1c9919706e.vfs.cloud9.us-east-2.amazonaws.com/search?utf8=%E2%9C%93&q%5Badress_cont%5D=%E6%9C%AD%E5%B9%8C&q%5Broom_name_or_room_introduction_or_price_or_adress_cont%5D=&commit=%E6%8E%A2%E3%81%99">
-        <img class="place_img" alt="札幌" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg">
-      </a>  
-      <p>札幌</p>
+      <%= link_to "札幌", "http://[::1]:3000/search?q%5Badress_cont%5D=%E6%9C%AD%E5%B9%8C&commit=%E6%8E%A2%E3%81%99" %>
     </div>
   </div>
 </div>
