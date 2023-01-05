@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @msg = 'this is sample page.'
-    # @rooms = Room.all
+    @rooms = Room.all
   end
 
   def profile
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    # @rooms = @user.rooms
+    @rooms = @user.rooms
   end 
 
   private
