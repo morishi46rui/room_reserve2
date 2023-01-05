@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'rooms/new'
+  get 'rooms/create'
+  get 'rooms/show'
+  get 'rooms/search'
   root 'homes#index'
   devise_for :users
 
