@@ -16,7 +16,11 @@
       <div class="d-inline-flex align-items-center">
         <figure class="avatar-icon pt-2">
           <div class="mx-auto">
-            <%= image_tag current_user.image, class:"profile-img avatar-icon-img" %>
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class:"profile-img avatar-icon-img"  %>
+            <% else %>
+              <%= image_tag "default-avatar.png", class:"profile-img avatar-icon-img" %>
+            <% end %>  
           </div>
         </figure> 
 

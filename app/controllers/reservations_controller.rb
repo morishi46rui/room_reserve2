@@ -26,6 +26,7 @@ class ReservationsController < ApplicationController
       flash[:notice] = "予約が完了しました。"
       redirect_to reservations_show_path(@reservation.id)
     else
+      flash[:alert] = "予約に失敗しました"
       render room_path(@reservation.room.id)
     end
   end

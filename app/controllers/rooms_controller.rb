@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "登録が完了しました。"
       redirect_to @room
     else
+      flash[:alert] = "未入力の項目があります。"
       render 'new'
     end
   end
