@@ -20,6 +20,8 @@
               <%= link_to room_path(obj.room.id) do %>
                 <% if obj.room.image.attached? %>
                   <%= image_tag obj.room.image, class:"img-thumbnail" %>
+                <% else %>
+                  <%= image_tag "default-room-image.png", class:"profile-img" %>
                 <% end %> 
               <% end %>  
             </td>
