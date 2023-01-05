@@ -1,0 +1,31 @@
+<div class="container mt-3">
+  <h2><%= current_user.name %>のプロフィール</h2>
+
+  <div>
+    <div>
+      写真が入るよ
+    </div>
+
+    <div>
+      <div>
+        <div>
+          <strong>アカウント登録日</strong>
+        </div>
+        <div>
+          <%= I18n.l(@user.created_at, format: :full_date) %>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <strong>自己紹介</strong>
+        </div>
+        <div>
+          <p><%= @user.about %></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
