@@ -11,31 +11,53 @@
 
   <h2><%= current_user.name %>のプロフィール</h2>
 
-  <div>
-    <div>
-      写真が入るよ
-    </div>
+  <div class="pages">
+  	<div class="container align-items-center">
+      <%= form_for(@user, url:{controller:'users', action:'update'}) do |form| %>
+  			<div class="input_form d-flex row">
+          <div class="profile-image-area d-block text-center col">
+            
+            <div class="user-image">
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image, class:"profile-img" %>
+              <% else %> 
+                <%= image_tag "default-avatar.png", class:"profile-img" %>
+              <% end %>  
+            </div>
+            
+            <div class="mt-2 align-items-center">
+                <label for="image">アイコン画像</label>
+                <span class="btn btn-danger btn-sm mx-2 disabled">必須</span>
+              <%= form.file_field :image, class:"mt-2" %>
+            </div>
 
-    <div>
-      <div>
-        <div>
-          <strong>アカウント登録日</strong>
-        </div>
-        <div>
-          <%= I18n.l(@user.created_at, format: :full_date) %>
-        </div>
-      </div>
+          </div>
 
-      <div>
-        <div>
-          <strong>自己紹介</strong>
-        </div>
-        <div>
-          <p><%= @user.about %></p>
-        </div>
-      </div>
-    </div>
+          <div class="profile-text-area d-block col">
+            
+            <div class="row under_line">
+              <div class="d-flex mb-2 align-items-center">
+                <label for="name">名前</label>
+                <span class="btn btn-danger btn-sm mx-2 disabled">必須</span>
+              </div>
+              <%= form.text_field :name, class:"form-controll" %>
+            </div>
+            
+            <div class="mt-5">
+              <div class="d-flex mb-2 align-items-center">
+                <label for="image">自己紹介</label>
+                <span class="btn btn-danger btn-sm mx-2 disabled">必須</span>
+              </div>
+              <%= form.text_area :about, class:"form-controll w-100" %>
+            </div>
 
+          </div>
+        </div>	
+        <div class="submit-btn m-3 d-flex justify-content-end">
+          <%= form.submit "更新", class:"btn btn-primary input_submit" %>
+        </div>
+      <% end %>  
+  	</div>
   </div>
 
 </div>
