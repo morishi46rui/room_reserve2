@@ -1,2 +1,42 @@
-<h1>Reservations#confirm</h1>
-<p>Find me in app/views/reservations/confirm.html.erb</p>
+<div class="container pages">
+  <h2>予約確認画面</h3>
+  
+  <h4 class="room_price">¥<%= @reservation.room.price %>/日</h4>
+  
+  <div class="confirm_form">
+    <span>開始日</span><br>
+    <p class="confirm_contents"><%= @reservation.start_date %></p>
+  </div>
+  
+  <div class="confirm_form">
+    <span>終了日</span><br>
+    <p class="confirm_contents"><%= @reservation.finish_date %></p>
+  </div>
+  
+  <div class="underline confirm">
+    <p>使用日数: <%= @dates_of_reservation %>日</p>
+  </div>
+  
+  <div class="underline confirm">
+    <p>人数: <%= @reservation.number_of_people %>人</p>
+  </div>
+  
+  <div class="confirm_form">
+    <span>合計金額</span><br>
+    <p class="confirm_contents"><%= @reservation.room.price * @reservation.number_of_people * @dates_of_reservation %></p>
+  </div>
+  
+  <div class="underline confirm">
+    <p>上記内容でよろしければ「予約を確定」を押してください</p>
+  </div>
+  
+  <%= form_for(@reservation, url:{controller:'reservations', action:'create'}) do |form| %>
+    <%= form.hidden_field :start_date %>
+    <%= form.hidden_field :finish_date %>
+    <%= form.hidden_field :number_of_people %>
+    <%= form.hidden_field :room_id %>
+    <%= form.submit "予約を確定", class:"btn btn-primary input_submit col-sm-12" %><br>
+    <%= form.submit "ルーム詳細に戻る", name: :back, class:"btn btn-secondary input_submit col-sm-12" %>
+  <% end %> 
+
+</div>
