@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'rooms/new'
-  get 'rooms/create'
-  get 'rooms/show'
-  get 'rooms/search'
+
   root 'homes#index'
   devise_for :users
 
@@ -15,6 +12,14 @@ Rails.application.routes.draw do
   get 'users/account'
   
   get 'users/rooms', to: 'users#show', as: 'users_show'
+
+  get 'rooms/new'
+  post 'rooms/new', to: 'rooms#create'
+
+  get 'rooms/:id', to: 'rooms#show', as: 'room'
+  post 'rooms/:id', to: 'reservations#confirm'
+  
+  get 'rooms/search'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
