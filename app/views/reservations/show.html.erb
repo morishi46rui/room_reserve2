@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="reservation_field">
+    <div class="row">
+      <h2>予約確定</h2>
+    </div>
+    <div class="row d-flex align-items-center">
+      <div class="col-sm-4">
+        <h3>予約した部屋</h3>
+      </div>
+      <p class="col-sm-8"><%= @reservation.room.room_name %></p>
+    </div>
+    
+    <div class="row d-flex align-items-center">
+      <div class="col-sm-4">
+        <h3>開始日</h3>
+      </div>
+      <p class="col-sm-8"><%= @reservation.start_date.strftime('%Y年%m月%d日') %></p>
+    </div>
+    
+    <div class="row d-flex align-items-center">
+      <div class="col-sm-4">
+        <h3>終了日</h3>
+      </div>
+      <p class="col-sm-8"><%= @reservation.finish_date.strftime('%Y年%m月%d日') %></p>
+    </div>
+    
+    <div class="row d-flex align-items-center">
+      <div class="col-sm-4">
+        <h3>価格</h3>
+      </div>
+      <p class="col-sm-8"><%= @reservation.room.price * @reservation.number_of_people * @dates_of_reservation %>円</p>
+    </div>
+
+  </div>
+</div>

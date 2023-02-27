@@ -1,0 +1,32 @@
+<div class="container mt-3">
+
+  <ul class="nav nav-pills mb-3">
+    <li class="nav-item">
+      <%= link_to "プロフィール", users_profile_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">アカウント</a>
+    </li>
+  </ul>
+  
+  <h2><%= current_user.name %>のアカウント</h2>
+  <div>
+    <div>
+      <div>
+        <div>
+          <div>
+            <label for="email">メールアドレス</label>
+          </div>
+          <p><%= @user.email %></p>
+        </div>
+        <div>
+          <div>
+            <label for="password">パスワード</label>
+          </div>
+          <p>*********</p>
+        </div>
+        <%= link_to  "編集", edit_user_registration_path, class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>	

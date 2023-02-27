@@ -1,0 +1,43 @@
+<div class="container mt-3">
+  <h2><%= current_user.name %>の登録したルーム</h2>
+  <table class="table table-striped width">
+      <thead>
+        <tr>
+          <th scope="col">ルーム画像</th>
+          <th scope="col">ルーム名</th>
+          <th scope="col">ルーム紹介</th>
+          <th scope="col">料金</th>
+          <th scope="col">作成日</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td>
+              <%= link_to room_path(room.id) do %>
+                <% if room.image.attached? %>
+                  <%= image_tag room.image, class:"img-thumbnail" %>
+                <% else %>
+                  <%= image_tag "default-room-image.png", class:"profile-img" %>
+                <% end %>        
+              <% end %>  
+            </td>
+            <td>
+              <%= link_to room_path(room.id) do %>
+                <p><%= room.room_name%></p>
+              <% end %>  
+            </td>
+            <td class="room_reservation_info">
+              <p><%= room.room_about %></p>
+            </td>
+            <td class="room_reservation_info">
+              <p>¥<%= room.price %><p>
+            </td>
+            <td class="room_reservation_info">
+              <p><%= room.created_at.strftime("%Y-%m-%d %H:%M") %><p>
+            </td>
+          </tr>
+        <% end %> 
+      </tbody>
+  </table>
+</div>

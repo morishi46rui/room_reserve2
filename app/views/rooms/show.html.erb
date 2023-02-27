@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row room_about_page">
+  <h2><%= @room.room_name %></h2>
+  <p><%= @room.adress %></p>
+    <div class="col-8">
+      <div class="room_img_field">
+        <% if @room.image.attached? %>
+          <%= image_tag @room.image, class:"room_img img-fluid rounded mx-auto d-block w-70" %>
+        <% else %>
+          <%= image_tag "default-room-image.png", class:"room_img img-fluid rounded mx-auto d-block w-70" %>
+        <% end %> 
+      </div>
+
+      <div class="row room_about mt-4">
+        <div class="room-about-contetnt mb-3">
+          <h3> 部屋の説明 </h3>
+          <p><%= @room.room_about %></p>
+        </div>
+        <div class="room-about-contetnt mb-3">
+          <h3> この部屋のオーナー </h3>
+            <div class="room-user d-flex justify-content-start align-items-center">
+              <div class="col-2 w-50 mt-2">
+                <% if @room.user.image.attached? %>
+                  <%= image_tag @room.user.image, class:"profile-img"  %>
+                <% else %>
+                  <%= image_tag "default-avatar.png", class:"profile-img" %>
+                <% end %>  
+              </div>
+              <div class="room-user-name fw-bold fs-2 m-auto">
+                <%= @room.user.name %>
+              </div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="col-4 ">
+      <div class="reservation_form_field border p-3 bg-light">
+        <%= render "shared/error", obj: @reservation %>
+        <p>¥<%= @room.price %>/日</p>
+        <%= form_for(@reservation, url:{controller: 'reservations', action: 'confirm'}) do |form| %>
+          <div class="reservation_form">
+            <span>開始日</span>
+            <p><%= form.date_field :start_date %></p>
+          </div>
+          <div class="reservation_form">
+            <span>終了日</span>
+            <p><%= form.date_field :finish_date %></p>
+          </div>
+          <div class="reservation_form">
+            <span>人数</span>
+            <p><%= form.number_field :number_of_people %></p>
+          </div>
+          <p><%= form.submit "予約", class:"btn btn-primary col-12 input_submit" %></p>
+        <% end %>  
+      </div>
+    </div>
+    
+  </div>
+</div>

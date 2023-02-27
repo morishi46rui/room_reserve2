@@ -1,0 +1,62 @@
+h2 {
+  padding: 0.5em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線*/
+}
+
+.profile-img {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+h3 {
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: #f4f4f4;/*背景色*/
+  border-left: solid 5px #7db4e6;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+
+
+.avatar-icon-img{
+  width: 50px;
+  height: 50px;
+}
+
+.top {
+  background-image: url(background-top.JPG);
+  background-size: cover;
+  background-position: 50%;
+  height: 800px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.top-search {
+  background: hsla(0,0%,100%,.4);
+  margin: auto;
+  padding: 32px;
+  width: 500px;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+.room-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.room {
+  width: 50%;
+}
+

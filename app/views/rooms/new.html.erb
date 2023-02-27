@@ -1,0 +1,42 @@
+<div class="container mt-3">
+  <h2> ルーム登録 </h2>
+  <div class="room-contents">
+    <%= form_for(@room, url:{controller:'rooms', action:'create'}) do |form| %>
+      <div class="update-content">
+        <div class="row">
+          <label class="col-md-3 required-a" for="name">ルーム名</label>
+          <%= form.text_field :room_name, class:"form-control mb-4 col-md-9", placeholder:"ルーム名を入力" %>
+        </div>
+      </div>
+
+      <div class="update-content">
+        <div class="row">
+          <label class="col-md-3 required-a" for="content">ルーム紹介</label>
+          <%= form.text_area :room_about, class:"form-control mb-4 col-md-9", placeholder:"ルーム紹介を入力" %>
+          </textarea>
+        </div>
+      </div>
+
+      <div class="update-content">
+        <div class="row">
+          <label class="col-md-3 required-a" for="price">料金</label>
+          <%= form.number_field :price, class:"form-control mb-4 col-md-9", placeholder:"一日あたりの料金を入力" %>
+        </div>
+      </div>  
+
+      <div class="update-content">
+        <div class="row">
+          <label class="col-md-3 required-a" for="address">住所</label>
+          <%= form.text_field :adress, class:"form-control mb-4 col-md-9", placeholder:"住所を入力" %>
+        </div>
+      </div>
+      <div class="update-content">
+        <%= form.file_field :image %>
+      </div>
+
+        <%= form.hidden_field :active, value: true %>
+        <%= form.submit "登録する", id: "publish_button", class: "btn btn-primary w-100 mt-3" %>
+    <% end %>
+
+  </div>
+</div>
